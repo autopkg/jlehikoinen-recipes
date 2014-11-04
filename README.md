@@ -1,6 +1,5 @@
-autopkg-recipes
+jlehikoinen-recipes
 ===============
 
 AutoPkg recipes
 
-###
