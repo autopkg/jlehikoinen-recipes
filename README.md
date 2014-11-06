@@ -3,6 +3,4 @@ jlehikoinen-recipes
 
 AutoPkg recipes
 
-NOTE!
-
-MSLyncWebAppPlugin recipe not ready yet! Sane version numbering needed.
+NOTE: Check MSLyncWebAppPlugin version number when the next update is released.
