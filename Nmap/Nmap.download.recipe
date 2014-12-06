@@ -27,7 +27,7 @@
 				<key>re_pattern</key>
 				<string>(nmap-[0-9]\.[0-9]+.dmg)</string>
 				<key>result_output_var_name</key>
-				<string>url</string>
+				<string>dmg</string>
 			</dict>
 		</dict>
         <dict>
@@ -35,6 +35,8 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+            	<key>url</key>
+				<string>http://nmap.org/dist/%dmg%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
             </dict>
