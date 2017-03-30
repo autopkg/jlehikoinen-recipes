@@ -12,22 +12,22 @@
         <string>apps</string>
         <key>NAME</key>
         <string>Sibelius</string>
-		<key>DISPLAY_NAME</key>
-		<string>Sibelius</string>
+        <key>DISPLAY_NAME</key>
+        <string>Sibelius</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
             </array>
-			<key>developer</key>
-			<string>Avid Technology, Inc.</string>
+            <key>developer</key>
+            <string>Avid Technology, Inc.</string>
             <key>description</key>
             <string>Create beautiful, captivating scores more quickly than ever before with the world's best selling notation software.</string>
             <key>name</key>
             <string>%NAME%</string>
-			<key>display_name</key>
-			<string>%DISPLAY_NAME%</string>
+            <key>display_name</key>
+            <string>%DISPLAY_NAME%</string>
             <key>unattended_install</key>
             <true/>
         </dict>
@@ -39,26 +39,15 @@
     <key>Process</key>
     <array>
         <dict>
-        	<key>Processor</key>
-            <string>DmgCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>dmg_root</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
-                <key>dmg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-            </dict>
-        </dict>
-        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%dmg_path%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
         </dict>
     </array>
 </dict>
