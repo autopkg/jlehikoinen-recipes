@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Imports latest version of Sibelius into Munki. Requires hansen-m-recipes repo.</string>
+    <string>Imports latest version of Sibelius into Munki. Requires hansen-m-recipes repo. Works for Sibelius version 7.X.X.</string>
     <key>Identifier</key>
     <string>com.github.jlehikoinen.munki.Sibelius</string>
     <key>Input</key>
