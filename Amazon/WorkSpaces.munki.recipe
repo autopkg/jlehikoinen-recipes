@@ -28,6 +28,17 @@
 			<string>%DISPLAY_NAME%</string>
             <key>unattended_install</key>
             <true/>
+            <key>postuninstall_script</key>
+			<string>#!/bin/sh
+
+# Remove app bundle because Bom payload points directly to Contents
+/bin/rm -rf "/Applications/WorkSpaces.app"
+exit 0
+</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
         </dict>
     </dict>
     <key>MinimumVersion</key>
