@@ -12,8 +12,8 @@
         <string>apps/Amazon</string>
         <key>NAME</key>
         <string>AmazonWorkSpaces</string>
-		<key>DISPLAY_NAME</key>
-		<string>Amazon WorkSpaces</string>
+        <key>DISPLAY_NAME</key>
+        <string>Amazon WorkSpaces</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -24,12 +24,12 @@
             <string>Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution which runs on AWS. With Amazon WorkSpaces, you can easily provision virtual, cloud-based Microsoft Windows desktops for your users, providing them access to the documents, applications, and resources they need, anywhere, anytime, from any supported device.</string>
             <key>name</key>
             <string>%NAME%</string>
-			<key>display_name</key>
-			<string>%DISPLAY_NAME%</string>
+            <key>display_name</key>
+            <string>%DISPLAY_NAME%</string>
             <key>unattended_install</key>
             <true/>
             <key>postuninstall_script</key>
-			<string>#!/bin/sh
+            <string>#!/bin/sh
 
 # Remove app bundle because Bom payload points directly to Contents
 /bin/rm -rf "/Applications/WorkSpaces.app"
@@ -67,16 +67,16 @@ exit 0
             <string>Unpack pkg based on pkg payload information</string>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/pkg_unpack/Payload</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
-				<key>purge_destination</key>
-				<false/>
-			</dict>
-		</dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/pkg_unpack/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload</string>
+                <key>purge_destination</key>
+                <false/>
+            </dict>
+        </dict>
         <dict>
             <key>Comment</key>
             <string>Get Amazon WorkSpaces version from the extracted payload</string>
@@ -91,31 +91,31 @@ exit 0
             </dict>
         </dict>
         <dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
             <key>Comment</key>
             <string>Delete temp directories</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
-					<string>%RECIPE_CACHE_DIR%/payload</string>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-		</dict>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+                    <string>%RECIPE_CACHE_DIR%/payload</string>
+                </array>
+            </dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
