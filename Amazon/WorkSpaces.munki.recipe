@@ -26,8 +26,6 @@
             <string>%NAME%</string>
             <key>display_name</key>
             <string>%DISPLAY_NAME%</string>
-            <key>unattended_install</key>
-            <true/>
             <key>postuninstall_script</key>
             <string>#!/bin/sh
 
