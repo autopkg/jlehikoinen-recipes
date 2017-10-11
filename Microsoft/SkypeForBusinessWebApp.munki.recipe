@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release of Microsoft Skype for Business Web App and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.jlehikoinen.munki.SkypeForBusinessWebApp</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Microsoft</string>
+        <key>NAME</key>
+        <string>SkypeForBusinessWebApp</string>
+        <key>DISPLAY_NAME</key>
+        <string>Skype for Business Web App</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Skype for Business Web App provides HD video conferencing, IM in meetings, high-fidelity desktop, application, and presentation viewing, desktop sharing, whiteboard, lobby, and presenter access controls. In addition, Skype for Business Web App now includes PC-based audio and video.</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>display_name</key>
+            <string>%DISPLAY_NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.6.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jlehikoinen.download.SkypeForBusinessWebApp</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

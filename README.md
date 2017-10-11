@@ -4,6 +4,7 @@ jlehikoinen-recipes
 [AutoPkg](https://github.com/autopkg/autopkg) recipes:
 
 - Amazon WorkSpaces
+- Microsoft Skype for Business Web App
 - Microsoft Yammer
 - Sibelius* (only munki recipe)
 
