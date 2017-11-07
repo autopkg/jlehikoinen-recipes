@@ -39,7 +39,7 @@
                 <string>%pathname%</string>
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: Amazon Digital Services, Inc. (529Z9TAB94)</string>
+                    <string>Developer ID Installer: AMZN Mobile LLC (94KV3E626L)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
