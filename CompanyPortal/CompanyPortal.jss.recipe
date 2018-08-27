@@ -49,7 +49,7 @@
                     <key>self_service_description</key>
                     <string>%SELF_SERVICE_DESCRIPTION%</string>
                     <key>pkg_path</key>
-                    <string>%pathname%</string>
+                    <string>%RECIPE_DIR%</string>
                     <key>groups</key>
                     <array>
                         <dict>
