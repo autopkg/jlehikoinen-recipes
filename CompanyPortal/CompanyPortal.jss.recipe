@@ -96,7 +96,7 @@
 					<key>category</key>
 					<string>%CATEGORY%</string>
 					<key>pkg_path</key>
-					<string>%pathname%</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
 					<key>policy_category</key>
 					<string>%POLICY_CATEGORY%</string>
 					<key>policy_template</key>
