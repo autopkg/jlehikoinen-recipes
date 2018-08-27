@@ -64,7 +64,6 @@
                 <key>path_list</key>
                 <array>
                     <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
-                    <string>%RECIPE_CACHE_DIR%/payload</string>
                     <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
                 </array>
             </dict>

@@ -30,41 +30,96 @@
         <key>MinimumVersion</key>
         <string>0.6.1</string>
         <key>ParentRecipe</key>
-        <string>com.github.jlehikoinen.pkg.CompanyPortal</string>
+        <string>com.github.jlehikoinen.download.CompanyPortal</string>
         <key>Process</key>
-        <array>
-            <dict>
-                <key>Arguments</key>
-                <dict>
-                    <key>prod_name</key>
-                    <string>%NAME%</string>
-                    <key>category</key>
-                    <string>%CATEGORY%</string>
-                    <key>policy_category</key>
-                    <string>%POLICY_CATEGORY%</string>
-                    <key>policy_template</key>
-                    <string>%POLICY_TEMPLATE%</string>
-                    <key>self_service_icon</key>
-                    <string>%SELF_SERVICE_ICON%</string>
-                    <key>self_service_description</key>
-                    <string>%SELF_SERVICE_DESCRIPTION%</string>
-                    <key>pkg_path</key>
-                    <string>%RECIPE_CACHE_DIR%</string>
-                    <key>groups</key>
-                    <array>
-                        <dict>
-                            <key>name</key>
-                            <string>%GROUP_NAME%</string>
-                            <key>smart</key>
-                            <true/>
-                            <key>template_path</key>
-                            <string>%GROUP_TEMPLATE%</string>
-                        </dict>
-                    </array>
-                </dict>
-                <key>Processor</key>
-                <string>JSSImporter</string>
-            </dict>
+    	<array>
+			<dict>
+				<key>Comment</key>
+				<string>First expand flat package</string>
+				<key>Processor</key>
+				<string>FlatPkgUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>flat_pkg_path</key>
+					<string>%pathname%</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+					<key>purge_destination</key>
+					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Unpack pkg based on pkg payload information</string>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/pkg_unpack/CompanyPortal-Component.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%</string>
+					<key>purge_destination</key>
+					<false/>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>AppPkgCreator</string>
+				<key>Arguments</key>
+				<dict>
+					<key>app_path</key>
+					<string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Delete temp directories</string>
+				<key>Arguments</key>
+				<dict>
+					<key>path_list</key>
+					<array>
+						<string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+						<string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
+					</array>
+				</dict>
+				<key>Processor</key>
+				<string>PathDeleter</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>os_requirements</key>
+					<string>%OS_REQUIREMENTS%</string>
+					<key>prod_name</key>
+					<string>%NAME%</string>
+					<key>category</key>
+					<string>%CATEGORY%</string>
+					<key>pkg_path</key>
+					<string>%pathname%</string>
+					<key>policy_category</key>
+					<string>%POLICY_CATEGORY%</string>
+					<key>policy_template</key>
+					<string>%POLICY_TEMPLATE%</string>
+					<key>self_service_icon</key>
+					<string>%SELF_SERVICE_ICON%</string>
+					<key>self_service_description</key>
+					<string>%SELF_SERVICE_DESCRIPTION%</string>
+					<key>groups</key>
+					<array>
+						<dict>
+							<key>name</key>
+							<string>%GROUP_NAME%</string>
+							<key>smart</key>
+							<true/>
+							<key>template_path</key>
+							<string>%GROUP_TEMPLATE%</string>
+						</dict>
+					</array>
+				</dict>
+				<key>Processor</key>
+				<string>JSSImporter</string>
+			</dict>
         </array>
     </dict>
 </plist>
