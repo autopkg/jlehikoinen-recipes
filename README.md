@@ -6,6 +6,7 @@ jlehikoinen-recipes
 - Amazon WorkSpaces
 - Microsoft Company Portal
 - Microsoft Skype for Business Web App
+- Microsoft Skype Meetings App
 - Microsoft Yammer
 - Sibelius* (only munki recipe)
 
