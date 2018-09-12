@@ -5,7 +5,7 @@
         <key>Description</key>
         <string>Downloads the current release of Microsoft Company Portal package, creates a new package containing only the app bundle and imports the new package into Jamf Pro server.</string>
         <key>Identifier</key>
-        <string>com.github.jlehikoinen.jss.CompanyPortal</string>
+        <string>com.github.jlehikoinen.jss.SkypeMeetingsApp</string>
         <key>Input</key>
         <dict>
             <key>NAME</key>
