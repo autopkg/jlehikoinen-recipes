@@ -1,22 +1,22 @@
 <computer_extension_attribute>
-	<name>%PROD_NAME% Version</name>
-	<description>Returns %PROD_NAME% version</description>
-	<data_type>string</data_type>
-	<input_type>
-		<type>script</type>
-		<platform>Mac</platform>
-		<script>#!/bin/bash
+    <name>MicrosoftAutoUpdateVersion</name>
+    <description>Returns Microsoft AutoUpdate version</description>
+    <data_type>string</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
 
 if [[ -f "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/Info.plist" ]]; then
-	extension_version=$(/usr/bin/defaults read "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/Info" CFBundleVersion)
+    extension_version=$(/usr/bin/defaults read "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/Info" CFBundleVersion)
 else
-	extension_version="Not Installed"
+    extension_version="Not Installed"
 fi
 
 echo "&lt;result&gt;$extension_version&lt;/result&gt;"
 
 exit 0</script>
-	</input_type>
-	<inventory_display>Extension Attributes</inventory_display>
-	<recon_display>Extension Attributes</recon_display>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
 </computer_extension_attribute>
