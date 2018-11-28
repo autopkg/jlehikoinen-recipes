@@ -12,6 +12,7 @@ jlehikoinen-recipes
 - Sibelius** (only munki recipe)
 
 _*MAU requires [root](https://github.com/autopkg/recipes) recipe repo._
+
 _**Sibelius requires [hansen-m-recipes](https://github.com/autopkg/hansen-m-recipes) recipe repo._
 
 Add this repo:
