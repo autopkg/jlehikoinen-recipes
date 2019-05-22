@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release of DisplayLink package, extracts version number and imports the package into Jamf Pro server.</string>
+    <key>Identifier</key>
+    <string>com.github.jlehikoinen.jss.DisplayLink</string>
+    <key>Input</key>
+    <dict>
+        <key>CATEGORY</key>
+        <string>Drivers</string>
+        <key>GROUP_NAME</key>
+        <string>%NAME%-update-smart</string>
+        <key>GROUP_TEMPLATE</key>
+        <string>%RECIPE_DIR%/SmartGroupTemplate.xml</string>
+        <key>NAME</key>
+        <string>DisplayLink</string>
+        <key>OS_REQUIREMENTS</key>
+        <string>10.14.x</string>
+        <key>POLICY_CATEGORY</key>
+        <string>Testing</string>
+        <key>POLICY_TEMPLATE</key>
+        <string>%RECIPE_DIR%/PolicyTemplate.xml</string>
+        <key>POLICY_TRIGGER</key>
+        <string>Install_DisplayLink</string>
+        <key>SELF_SERVICE_DESCRIPTION</key>
+        <string>Install driver for DisplayLink® enabled USB graphics device that is incorporated in your dock, adapter or monitor. This software provides support for the DisplayLink enabled video outputs.</string>
+        <key>SELF_SERVICE_ICON</key>
+        <string>DisplayLink Software Installer.png</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.6.1</string>
+    <key>ParentRecipe</key>
+    <string>com.github.bochoven.recipes.download.DisplayLink</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Comment</key>
+                <string>First expand flat package</string>
+                <key>Processor</key>
+                <string>FlatPkgUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>flat_pkg_path</key>
+                    <string>%found_filename%/DisplayLink Software Installer.pkg</string>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+                    <key>purge_destination</key>
+                    <true/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Unpack pkg based on pkg payload information</string>
+                <key>Processor</key>
+                <string>PkgPayloadUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_payload_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkg_unpack/DisplayLinkDriverSignedKexts.pkg/Payload</string>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/version_check</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Get version from the extracted payload</string>
+                <key>Processor</key>
+                <string>Versioner</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>input_plist_path</key>
+                    <string>%RECIPE_CACHE_DIR%/version_check/DisplayLinkDriver.kext/Contents/Info.plist</string>
+                    <key>plist_version_key</key>
+                    <string>CFBundleShortVersionString</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Rename package and add version number to pkg name</string>
+            	<key>Processor</key>
+            	<string>Copier</string>
+            	<key>Arguments</key>
+            	<dict>
+                	<key>source_path</key>
+                	<string>%found_filename%/DisplayLink Software Installer.pkg</string>
+                	<key>destination_path</key>
+                	<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+            	</dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Delete temp directories</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>path_list</key>
+                    <array>
+                        <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+                        <string>%RECIPE_CACHE_DIR%/version_check</string>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>PathDeleter</string>
+            </dict>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>os_requirements</key>
+                    <string>%OS_REQUIREMENTS%</string>
+                    <key>prod_name</key>
+                    <string>%NAME%</string>
+                    <key>category</key>
+                    <string>%CATEGORY%</string>
+                    <key>pkg_path</key>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                    <key>policy_category</key>
+                    <string>%POLICY_CATEGORY%</string>
+                    <key>policy_template</key>
+                    <string>%POLICY_TEMPLATE%</string>
+                    <key>self_service_icon</key>
+                    <string>%SELF_SERVICE_ICON%</string>
+                    <key>self_service_description</key>
+                    <string>%SELF_SERVICE_DESCRIPTION%</string>
+                    <key>groups</key>
+                    <array>
+                        <dict>
+                            <key>name</key>
+                            <string>%GROUP_NAME%</string>
+                            <key>smart</key>
+                            <true/>
+                            <key>template_path</key>
+                            <string>%GROUP_TEMPLATE%</string>
+                        </dict>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>JSSImporter</string>
+            </dict>
+        </array>
+    </dict>
+</plist>
