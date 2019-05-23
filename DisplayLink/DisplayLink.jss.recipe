@@ -110,6 +110,8 @@
                 <dict>
                     <key>os_requirements</key>
                     <string>%OS_REQUIREMENTS%</string>
+                    <key>package_reboot</key>
+                    <true/>
                     <key>prod_name</key>
                     <string>%NAME%</string>
                     <key>category</key>
