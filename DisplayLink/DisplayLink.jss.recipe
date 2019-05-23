@@ -13,7 +13,7 @@
         <key>GROUP_NAME</key>
         <string>%NAME%-update-smart</string>
         <key>GROUP_TEMPLATE</key>
-        <string>%RECIPE_DIR%/SmartGroupTemplate.xml</string>
+        <string>%RECIPE_DIR%/DisplayLinkSmartGroupTemplate.xml</string>
         <key>NAME</key>
         <string>DisplayLink</string>
         <key>OS_REQUIREMENTS</key>
@@ -122,6 +122,13 @@
                     <string>%SELF_SERVICE_ICON%</string>
                     <key>self_service_description</key>
                     <string>%SELF_SERVICE_DESCRIPTION%</string>
+                    <key>extension_attributes</key>
+                    <array>
+                        <dict>
+                            <key>ext_attribute_path</key>
+                            <string>DisplayLinkExtensionAttribute.xml</string>
+                        </dict>
+                    </array>
                     <key>groups</key>
                     <array>
                         <dict>
