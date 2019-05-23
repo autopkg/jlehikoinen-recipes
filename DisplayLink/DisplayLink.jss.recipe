@@ -19,7 +19,7 @@
         <key>OS_REQUIREMENTS</key>
         <string>10.14.x</string>
         <key>PACKAGE_REBOOT</key>
-        <true/>
+        <string>True</string>
         <key>POLICY_CATEGORY</key>
         <string>Testing</string>
         <key>POLICY_TEMPLATE</key>
@@ -111,7 +111,7 @@
                     <key>os_requirements</key>
                     <string>%OS_REQUIREMENTS%</string>
                     <key>package_reboot</key>
-                    <true/>
+                    <string>%PACKAGE_REBOOT%</string>
                     <key>prod_name</key>
                     <string>%NAME%</string>
                     <key>category</key>
