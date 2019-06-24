@@ -28,7 +28,7 @@
             <string>The Company Portal provides access to corporate apps and resources from almost any network. Your company must already subscribe to Microsoft Intune, and your IT admin must set up your account before you can use this app.</string>
         </dict>
         <key>MinimumVersion</key>
-        <string>0.6.1</string>
+        <string>1.0.0</string>
         <key>ParentRecipe</key>
         <string>com.github.jlehikoinen.download.CompanyPortal</string>
         <key>Process</key>

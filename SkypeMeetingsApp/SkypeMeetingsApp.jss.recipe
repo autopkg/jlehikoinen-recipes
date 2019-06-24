@@ -28,7 +28,7 @@
             <string>Skype Meetings App provides HD video conferencing, IM in meetings, high-fidelity desktop, application, and presentation viewing, desktop sharing, whiteboard, lobby, and presenter access controls. In addition, Skype Meetings App now includes PC-based audio and video.</string>
         </dict>
         <key>MinimumVersion</key>
-        <string>0.6.1</string>
+        <string>1.0.0</string>
         <key>ParentRecipe</key>
         <string>com.github.jlehikoinen.download.SkypeMeetingsApp</string>
         <key>Process</key>
