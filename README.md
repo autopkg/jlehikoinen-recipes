@@ -13,7 +13,7 @@ jlehikoinen-recipes
 - Microsoft Yammer
 - Sibelius**** (only munki recipe)
 
-_*Barcode Producer requires [mosen-recipes](https://github.com/autopkg/mosen-recipes) and [moofit-recipes](https://github.com/autopkg/moofit-recipes)recipe repos._
+_*Barcode Producer requires [mosen-recipes](https://github.com/autopkg/mosen-recipes) and [moofit-recipes](https://github.com/autopkg/moofit-recipes) recipe repos._
 
 _**DisplayLink requires [bochoven-recipes](https://github.com/autopkg/bochoven-recipes) recipe repo._
 
