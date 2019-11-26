@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
+        <key>Comment</key>
+        <string>Work in progress</string>
         <key>Description</key>
         <string>Downloads current release of ColorNavigator 7 and imports it into the JSS.</string>
         <key>Identifier</key>
