@@ -18,7 +18,7 @@ _*Barcode Producer requires [mosen-recipes](https://github.com/autopkg/mosen-rec
 
 _**DisplayLink requires [bochoven-recipes](https://github.com/autopkg/bochoven-recipes) recipe repo._
 
-_***EIZO ColorNavigator 7 requires [foigus-recipes](https://github.com/autopkg/foigus-recipes) recipe repo._
+_***EIZO ColorNavigator 7 requires [hjuutilainen-recipes](https://github.com/autopkg/foigus-recipes) and [foigus-recipes](https://github.com/autopkg/hjuutilainen-recipes) recipe repos._
 
 _****MAU requires [root](https://github.com/autopkg/recipes) recipe repo._
 
