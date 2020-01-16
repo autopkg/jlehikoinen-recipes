@@ -17,7 +17,7 @@
         <key>NAME</key>
         <string>DisplayLink</string>
         <key>OS_REQUIREMENTS</key>
-        <string>10.14.x</string>
+        <string>10.15.x,10.14.x</string>
         <key>PACKAGE_REBOOT</key>
         <string>True</string>
         <key>POLICY_CATEGORY</key>
