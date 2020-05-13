@@ -26,19 +26,6 @@
                 <string>%pathname%/Mattermost.app</string>
             </dict>
         </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Delete temp directories</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/payload/Applications</string>
-                </array>
-            </dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-        </dict>
     </array>
 </dict>
 </plist>
