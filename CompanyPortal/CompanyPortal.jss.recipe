@@ -30,62 +30,9 @@
         <key>MinimumVersion</key>
         <string>1.0.0</string>
         <key>ParentRecipe</key>
-        <string>com.github.jlehikoinen.download.CompanyPortal</string>
+        <string>com.github.jlehikoinen.pkg.CompanyPortal</string>
         <key>Process</key>
         <array>
-            <dict>
-                <key>Comment</key>
-                <string>First expand flat package</string>
-                <key>Processor</key>
-                <string>FlatPkgUnpacker</string>
-                <key>Arguments</key>
-                <dict>
-                    <key>flat_pkg_path</key>
-                    <string>%pathname%</string>
-                    <key>destination_path</key>
-                    <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
-                    <key>purge_destination</key>
-                    <false/>
-                </dict>
-            </dict>
-            <dict>
-                <key>Comment</key>
-                <string>Unpack pkg based on pkg payload information</string>
-                <key>Processor</key>
-                <string>PkgPayloadUnpacker</string>
-                <key>Arguments</key>
-                <dict>
-                    <key>pkg_payload_path</key>
-                    <string>%RECIPE_CACHE_DIR%/pkg_unpack/CompanyPortal-Component.pkg/Payload</string>
-                    <key>destination_path</key>
-                    <string>%RECIPE_CACHE_DIR%</string>
-                    <key>purge_destination</key>
-                    <false/>
-                </dict>
-            </dict>
-            <dict>
-                <key>Processor</key>
-                <string>AppPkgCreator</string>
-                <key>Arguments</key>
-                <dict>
-                    <key>app_path</key>
-                    <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
-                </dict>
-            </dict>
-            <dict>
-                <key>Comment</key>
-                <string>Delete temp directories</string>
-                <key>Arguments</key>
-                <dict>
-                    <key>path_list</key>
-                    <array>
-                        <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
-                        <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
-                    </array>
-                </dict>
-                <key>Processor</key>
-                <string>PathDeleter</string>
-            </dict>
             <dict>
                 <key>Arguments</key>
                 <dict>
