@@ -3,7 +3,7 @@
 <plist version="1.0">
     <dict>
         <key>Description</key>
-        <string>Downloads the current release of Microsoft Company Portal package, creates a new package containing only the app bundle and imports the new package into Jamf Pro server.</string>
+        <string>Downloads the current release of Microsoft Company Portal package, renames the installer package with version information and imports the package into Jamf Pro server.</string>
         <key>Identifier</key>
         <string>com.github.jlehikoinen.jss.CompanyPortal</string>
         <key>Input</key>

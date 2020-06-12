@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release of Microsoft Company Portal package and creates a new package only containing the app bundle.</string>
+    <string>Downloads the current release of Microsoft Company Portal package and renames the installer package with version information.</string>
     <key>Identifier</key>
     <string>com.github.jlehikoinen.pkg.CompanyPortal</string>
     <key>Input</key>
@@ -48,13 +48,30 @@
             </dict>
         </dict>
         <dict>
-            <key>Processor</key>
-            <string>AppPkgCreator</string>
+            <key>Comment</key>
+            <string>Get version number from app bundle Info.plist</string>
             <key>Arguments</key>
             <dict>
-                <key>app_path</key>
-                <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>CFBundleShortVersionString</string>
             </dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Rename original package with version information</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source</key>
+                <string>%pathname%</string>
+                <key>target</key>
+                <string>%RECIPE_CACHE_DIR%/Company Portal-%version%.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>FileMover</string>
         </dict>
         <dict>
             <key>Comment</key>
