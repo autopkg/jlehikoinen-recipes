@@ -34,7 +34,7 @@
     <key>MinimumVersion</key>
     <string>0.6.1</string>
     <key>ParentRecipe</key>
-    <string>com.github.bochoven.recipes.download.DisplayLink</string>
+    <string>com.github.dataJAR-recipes.download.DisplayLink</string>
         <key>Process</key>
         <array>
             <dict>
