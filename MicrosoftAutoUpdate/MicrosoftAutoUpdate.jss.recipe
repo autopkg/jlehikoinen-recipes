@@ -16,8 +16,6 @@
         <string>%RECIPE_DIR%/MicrosoftAutoUpdateSmartGroupTemplate.xml</string>
         <key>NAME</key>
         <string>Microsoft AutoUpdate</string>
-        <key>OS_REQUIREMENTS</key>
-        <string>10.15.x,10.14.x,10.13.x,10.12.x,10.11.x,10.10.x</string>
         <key>POLICY_CATEGORY</key>
         <string>Testing</string>
         <key>POLICY_TEMPLATE</key>
@@ -115,8 +113,6 @@
             <dict>
                 <key>Arguments</key>
                 <dict>
-                    <key>os_requirements</key>
-                    <string>%OS_REQUIREMENTS%</string>
                     <key>prod_name</key>
                     <string>%NAME%</string>
                     <key>category</key>

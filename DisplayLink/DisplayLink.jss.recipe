@@ -16,8 +16,6 @@
         <string>%RECIPE_DIR%/DisplayLinkSmartGroupTemplate.xml</string>
         <key>NAME</key>
         <string>DisplayLink</string>
-        <key>OS_REQUIREMENTS</key>
-        <string>10.15.x,10.14.x</string>
         <key>PACKAGE_REBOOT</key>
         <string>True</string>
         <key>POLICY_CATEGORY</key>
@@ -108,8 +106,6 @@
             <dict>
                 <key>Arguments</key>
                 <dict>
-                    <key>os_requirements</key>
-                    <string>%OS_REQUIREMENTS%</string>
                     <key>package_reboot</key>
                     <string>%PACKAGE_REBOOT%</string>
                     <key>prod_name</key>
