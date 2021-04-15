@@ -13,6 +13,7 @@ jlehikoinen-recipes
 - Microsoft Skype for Business Web App
 - Microsoft Skype Meetings App
 - Microsoft Yammer
+- Plantronics Hub (only jss recipe)
 - Sibelius (only munki recipe)
 - Wrike for Mac (only jss recipe)
 
