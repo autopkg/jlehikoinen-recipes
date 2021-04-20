@@ -75,8 +75,6 @@
             <string>Create installs array from the .app bundle</string>
             <key>Arguments</key>
             <dict>
-                <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app/Contents/Info.plist</string>
                 <key>faux_root</key>
                 <string>%RECIPE_CACHE_DIR%</string>
                 <key>installs_item_paths</key>
