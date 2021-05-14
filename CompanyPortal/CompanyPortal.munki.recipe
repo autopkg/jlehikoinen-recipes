@@ -83,9 +83,30 @@
                 </array>
             </dict>
         </dict>
+         <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Comment</key>
+            <string>Set the version to that of the .apps CFBundleShortVersionString</string>
+            <key>Arguments</key>
+            <dict>
+                 <key>input_plist_path</key>
+                 <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app/Contents/Info.plist</string>
+                 <key>plist_version_key</key>
+                 <string>CFBundleShortVersionString</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                 <key>additional_pkginfo</key>
+                 <dict>
+                      <key>version</key>
+                      <string>%version%</string>
+                 </dict>
+            </dict>
         </dict>
         <dict>
             <key>Processor</key>
