@@ -39,10 +39,10 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Comment</key>
-            <string>First expand flat package</string>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
+            <key>Comment</key>
+            <string>First expand flat package</string>
             <key>Arguments</key>
             <dict>
                 <key>flat_pkg_path</key>
@@ -54,10 +54,10 @@
             </dict>
         </dict>
         <dict>
-            <key>Comment</key>
-            <string>Unpack pkg based on pkg payload information</string>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
+            <key>Comment</key>
+            <string>Unpack pkg based on pkg payload information</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_payload_path</key>
@@ -68,15 +68,36 @@
                 <false/>
             </dict>
         </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Get version number from app bundle</string>
+       <dict>
             <key>Processor</key>
-            <string>Versioner</string>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Comment</key>
+            <string>Create installs array from the .app bundle</string>
             <key>Arguments</key>
             <dict>
-                <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app/Contents/Info.plist</string>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/Company Portal.app</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Comment</key>
+            <string>Set the version to that of the .apps CFBundleShortVersionString</string>
+            <key>Arguments</key>
+            <dict>
+                 <key>input_plist_path</key>
+                 <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app/Contents/Info.plist</string>
+                 <key>plist_version_key</key>
+                 <string>CFBundleShortVersionString</string>
             </dict>
         </dict>
         <dict>
@@ -84,11 +105,11 @@
             <string>MunkiPkginfoMerger</string>
             <key>Arguments</key>
             <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
+                 <key>additional_pkginfo</key>
+                 <dict>
+                      <key>version</key>
+                      <string>%version%</string>
+                 </dict>
             </dict>
         </dict>
         <dict>
@@ -99,7 +120,7 @@
                 <key>dmg_root</key>
                 <string>%pathname%</string>
                 <key>dmg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.dmg</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
@@ -114,6 +135,8 @@
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
             <key>Comment</key>
             <string>Delete temp directories</string>
             <key>Arguments</key>
@@ -124,8 +147,6 @@
                     <string>%RECIPE_CACHE_DIR%/Applications/Company Portal.app</string>
                 </array>
             </dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
         </dict>
     </array>
 </dict>
