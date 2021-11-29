@@ -6,6 +6,7 @@ jlehikoinen-recipes
 - Amazon WorkSpaces
 - Barcode Producer (only jss recipe)
 - DisplayLink (only jss recipe)
+- draw.io (only jss recipe)
 - FontBase
 - Mattermost (pkg and jss recipes)
 - Microsoft AutoUpdate (only jss recipe)
