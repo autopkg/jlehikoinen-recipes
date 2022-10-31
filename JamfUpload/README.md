@@ -1,3 +1,1 @@
-# jlehikoinen-jamf-recipes
-
-AutoPkg Jamf recipes
+# Jamf Upload recipes
