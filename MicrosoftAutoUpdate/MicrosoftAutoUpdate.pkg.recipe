@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Downloads the current release of Microsoft AutoUpdate package and creates a new package.</string>
+        <key>Identifier</key>
+        <string>com.github.jlehikoinen.pkg.MicrosoftAutoUpdate</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>MicrosoftAutoUpdate</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.6.1</string>
+        <key>ParentRecipe</key>
+        <string>com.github.jlehikoinen.download.MicrosoftAutoUpdate</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Comment</key>
+                <string>First expand flat package</string>
+                <key>Processor</key>
+                <string>FlatPkgUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>flat_pkg_path</key>
+                    <string>%pathname%</string>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+                    <key>purge_destination</key>
+                    <false/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Unpack pkg based on pkg payload information</string>
+                <key>Processor</key>
+                <string>PkgPayloadUnpacker</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_payload_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkg_unpack/Office16_autoupdate_updater.pkg/Payload</string>
+                    <key>destination_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/Microsoft/MAU2.0/</string>
+                    <key>purge_destination</key>
+                    <false/>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Get Microsoft AutoUpdate version from the extracted payload</string>
+                <key>Processor</key>
+                <string>Versioner</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>input_plist_path</key>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/Info.plist</string>
+                    <key>plist_version_key</key>
+                    <string>CFBundleVersion</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>PkgCreator</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_request</key>
+                    <dict>
+                        <key>pkgroot</key>
+                        <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                        <key>pkgname</key>
+                        <string>%SOFTWARETITLE%-%version%</string>
+                        <key>pkgtype</key>
+                        <string>flat</string>
+                        <key>id</key>
+                        <string>com.microsoft.autoupdate2</string>
+                        <key>version</key>
+                        <string>%version%</string>
+                    </dict>
+                </dict>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>Delete temp directories</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>path_list</key>
+                    <array>
+                        <string>%RECIPE_CACHE_DIR%/pkg_unpack</string>
+                        <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                    </array>
+                </dict>
+                <key>Processor</key>
+                <string>PathDeleter</string>
+            </dict>
+        </array>
+    </dict>
+</plist>
