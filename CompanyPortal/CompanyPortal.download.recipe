@@ -21,12 +21,12 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://go.microsoft.com/fwlink/?linkid=869655</string>
+                <string>https://go.microsoft.com/fwlink/?linkid=853070</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
             <key>Comment</key>
-            <string>Download URL source from https://macadmins.software.</string>
+            <string>Download URL source from: https://learn.microsoft.com/en-us/mem/intune/user-help/sign-in-to-the-company-portal#macos</string>
         </dict>
         <dict>
             <key>Processor</key>
